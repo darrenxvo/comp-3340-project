@@ -1,6 +1,7 @@
 <?php
 // index.php
 // Connect to the database
+session_start();
 require_once 'includes/db.php'; 
 
 // Fetches all the different albums from my database
@@ -29,8 +30,22 @@ try {
         <ul>
             <li><a href="index.php">Home</a></li>
             <li><a href="about.php">About</a></li>
+            <li><a href="quote-calculator.php">Custom Quote</a></li>
             <li><a href="wiki/help-index.php">Help</a></li>
+            
+            <?php if (isset($_SESSION['user_id'])): ?>
+                <li><a href="logout.php">Logout (<?= htmlspecialchars($_SESSION['username']) ?>)</a></li>
+                
+                <?php if ($_SESSION['role'] === 'admin'): ?>
+                    <li><a href="admin.php" style="color: red;">Admin Dashboard</a></li>
+                    <li><a href="monitor.php" style="color: red;">Server Monitor</a></li>
+                <?php endif; ?>
+                
+            <?php else: ?>
+                <li><a href="login.php">Login / Register</a></li>
+            <?php endif; ?>
         </ul>
+        
         <select id="theme-selector">
             <option value="light">Regular Theme</option>
             <option value="dark">Dark Theme</option>

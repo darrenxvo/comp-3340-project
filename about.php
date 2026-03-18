@@ -29,15 +29,15 @@
     <div style="margin-bottom: 20px;">
         <h3>Vinyl Sound Quality Snippet 1</h3>
         <audio controls>
-            <source src="media/welcome.mp3" type="audio/mpeg">
+            <source src="media/Headlock.flac" type="audio/flac">
             Your browser does not support the audio element.
         </audio>
     </div>
 
     <div style="margin-bottom: 20px;">
-        <h3>Vinyl Sound Quality Snippet 1</h3>
+        <h3>Vinyl Sound Quality Snippet 2</h3>
         <audio controls>
-            <source src="media/interview.mp3" type="audio/mpeg">
+            <source src="media/PicturesOfYou.flac" type="audio/flac">
             Your browser does not support the audio element.
         </audio>
     </div>
@@ -45,7 +45,7 @@
     <div style="margin-bottom: 20px;">
         <h3>Vinyl Sound Quality Snippet 3</h3>
         <audio controls>
-            <source src="media/welcome.mp3" type="audio/mpeg">
+            <source src="media/Outro.flac" type="audio/flac">
             Your browser does not support the audio element.
         </audio>
     </div>
