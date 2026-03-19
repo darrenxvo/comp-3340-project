@@ -23,20 +23,10 @@ try {
 
 // Tests PHP service
 $php_status = phpversion() ? 'Online 🟢 (v' . phpversion() . ')' : 'Offline 🔴';
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Server Monitor | Sound Stage</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-<header>
-    <h1>System Monitoring</h1>
-    <nav><ul><li><a href="index.php">Back to Store</a></li></ul></nav>
-</header>
+$page_title = "Server Monitor | Sound Stage";
+include 'includes/header.php'; 
+?>
 
 <main style="padding: 40px; max-width: 600px; margin: 0 auto;">
     <h2>Service Status</h2>

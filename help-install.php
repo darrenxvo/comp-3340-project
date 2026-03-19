@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head><meta charset="UTF-8"><title>Installation | Wiki</title><link rel="stylesheet" href="../css/style.css"></head>
-<body>
-<header><h1>Developer Installation Guide</h1><nav><ul><li><a href="help-index.php">Back</a></li></ul></nav></header>
+<?php
+$page_title = "Installation | Wiki";
+include 'includes/header.php';
+?>
 <main style="padding: 40px; max-width: 800px; margin: 0 auto;">
     <h2>Deploying the Application</h2>
     <p>To install this application on a new server (e.g., UWindsor myweb):</p>
@@ -14,5 +13,6 @@
         <li>Update `includes/db.php` with your new database host, name, username, and password.</li>
     </ol>
 </main>
+<script src="js/script.js"></script>
 </body>
 </html>

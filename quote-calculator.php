@@ -26,20 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $quote_result = $total;
 }
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Custom Vinyl Quote | Sound Stage</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-<header>
-    <h1>Custom Vinyl Pressing</h1>
-    <nav><ul><li><a href="index.php">Back to Store</a></li></ul></nav>
-</header>
+$page_title = "Custom Vinyl Quote | Sound Stage";
+include 'includes/header.php'; 
+?>
 
 <main style="padding: 40px; max-width: 600px; margin: 0 auto;">
     <h2>Get a Pressing Quote</h2>

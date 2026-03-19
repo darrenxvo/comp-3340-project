@@ -36,32 +36,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_product'])) {
 // Fetches data to display
 $users = $pdo->query("SELECT id, username, email, role, status FROM users")->fetchAll();
 $products = $pdo->query("SELECT id, title, artist, price_cd, price_vinyl FROM products")->fetchAll();
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Admin Dashboard | Sound Stage</title>
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
-        th, td { border: 1px solid var(--card-border); padding: 10px; text-align: left; }
-        th { background-color: var(--nav-bg); }
-        .admin-form { display: flex; gap: 10px; align-items: center; }
-        .admin-input { width: 80px; padding: 5px; }
-    </style>
-</head>
-<body>
-<header>
-    <h1>Administrator Dashboard</h1>
-    <nav>
-        <ul>
-            <li><a href="index.php">Back to Store</a></li>
-            <li><a href="monitor.php">Server Monitor</a></li>
-        </ul>
-    </nav>
-</header>
+$page_title = "Admin Dashboard | Sound Stage";
+include 'includes/header.php'; 
+?>
+<style>
+    table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+    th, td { border: 1px solid var(--card-border); padding: 10px; text-align: left; }
+    th { background-color: var(--nav-bg); }
+    .admin-form { display: flex; gap: 10px; align-items: center; }
+    .admin-input { width: 80px; padding: 5px; }
+</style>
 
 <main style="padding: 40px; max-width: 1000px; margin: 0 auto;">
     <?php if ($message): ?>

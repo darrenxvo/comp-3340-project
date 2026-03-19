@@ -31,20 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error = "Invalid email or password.";
     }
 }
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login | Sound Stage</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-<header>
-    <h1>Welcome Back</h1>
-    <nav><ul><li><a href="index.php">Back to Store</a></li></ul></nav>
-</header>
+$page_title = "Login | Sound Stage";
+include 'includes/header.php'; 
+?>
 
 <main style="padding: 40px; max-width: 400px; margin: 0 auto; text-align: center;">
     <div class="product-card">

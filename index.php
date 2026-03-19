@@ -1,8 +1,13 @@
 <?php
 // index.php
-// Connect to the database
-session_start();
-require_once 'includes/db.php'; 
+// Main catalogue page displaying all products dynamically.
+
+// SEO for this specific page
+$page_title = "Home | Sound Stage";
+$meta_desc = "Browse our massive catalogue of premium Vinyl and CD albums.";
+
+// Gets the centralized header, which handles the session, database, and navigation bar
+include 'includes/header.php'; 
 
 // Fetches all the different albums from my database
 try {
@@ -13,51 +18,11 @@ try {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sound Stage | Shop Vinyl & CDs</title>
-    <meta name="description" content="A curated selection of the best albums on Vinyl and CD.">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
-<header>
-    <h1>Sound Stage</h1>
-    <nav>
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="about.php">About</a></li>
-            <li><a href="quote-calculator.php">Custom Quote</a></li>
-            <li><a href="wiki/help-index.php">Help</a></li>
-            
-            <?php if (isset($_SESSION['user_id'])): ?>
-                <li><a href="logout.php">Logout (<?= htmlspecialchars($_SESSION['username']) ?>)</a></li>
-                
-                <?php if ($_SESSION['role'] === 'admin'): ?>
-                    <li><a href="admin.php" style="color: red;">Admin Dashboard</a></li>
-                    <li><a href="monitor.php" style="color: red;">Server Monitor</a></li>
-                <?php endif; ?>
-                
-            <?php else: ?>
-                <li><a href="login.php">Login / Register</a></li>
-            <?php endif; ?>
-        </ul>
-        
-        <select id="theme-selector">
-            <option value="light">Regular Theme</option>
-            <option value="dark">Dark Theme</option>
-            <option value="retro">Retro Theme</option>
-        </select>
-    </nav>
-</header>
-
 <main class="product-grid">
     <?php foreach ($products as $album): ?>
         <div class="product-card">
-            <div class="image-placeholder">💿 Image: <?= htmlspecialchars($album['image_url']) ?></div>
+            
+            <img src="images/<?= htmlspecialchars($album['image_url']) ?>" alt="<?= htmlspecialchars($album['title']) ?>" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px;">
             
             <h3><?= htmlspecialchars($album['title']) ?></h3>
             <p><em><?= htmlspecialchars($album['artist']) ?></em></p>
@@ -71,6 +36,7 @@ try {
                 </select>
                 <button type="submit" style="margin-top: 10px;">Add to Cart</button>
             </form>
+            
         </div>
     <?php endforeach; ?>
 </main>

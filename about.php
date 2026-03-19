@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>About Us | Sound Stage</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-<header>
-    <h1>About Sound Stage</h1>
-    <nav><ul><li><a href="index.php">Back to Store</a></li></ul></nav>
-</header>
+<?php
+// about.php
+$page_title = "About Us | Sound Stage";
+include 'includes/header.php'; 
+?>
 
 <main style="padding: 40px; max-width: 800px; margin: 0 auto;">
     <h2>Our Business Case</h2>

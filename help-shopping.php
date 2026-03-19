@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>How to Shop | Wiki</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-<header>
-    <h1>How to Shop</h1>
-    <nav><ul><li><a href="help-index.php">Back to Wiki Menu</a></li></ul></nav>
-</header>
+<?php
+$page_title = "How to Shop | Wiki";
+include 'includes/header.php';
+?>
 <main style="padding: 40px; max-width: 800px; margin: 0 auto;">
     <h2>Browsing and Purchasing Albums</h2>
     <p>Welcome to our catalogue! Here is how to make a purchase:</p>
@@ -21,5 +13,6 @@
         <li>Review your selection on the Cart page and proceed to checkout!</li>
     </ol>
 </main>
+<script src="js/script.js"></script>
 </body>
 </html>

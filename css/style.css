@@ -1,97 +1,196 @@
 /* css/style.css */
 
-/* Theme 1: Light (Default) */
+/* 1. IMPORT GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;700&family=Quicksand:wght@400;600&display=swap');
+
+/* 2. THEME VARIABLES */
 :root {
-    --bg-color: #ffffff;
-    --text-color: #222222;
-    --nav-bg: #f4f4f4;
-    --card-border: #dddddd;
-    --btn-bg: #0056b3;
+    --bg-colour: #0a0f1d;
+    --text-colour: #e0f2fe;
+    --nav-bg: #111827;
+    --nav-text: #e0f2fe;
+    --card-bg: #1e293b;
+    --card-border: #06b6d4;
+    --btn-bg: #d946ef;
     --btn-text: #ffffff;
+    --hover-shadow: 0 0 20px rgba(217, 70, 239, 0.6);
+    --admin-color: #ff007f; 
+    --main-font: 'Orbitron', sans-serif;
 }
 
-/* Theme 2: Dark Mode */
 [data-theme="dark"] {
-    --bg-color: #1a1a1a;
-    --text-color: #f0f0f0;
-    --nav-bg: #333333;
-    --card-border: #444444;
-    --btn-bg: #bb86fc;
-    --btn-text: #000000;
+    --bg-colour: #1a1a1a;
+    --text-colour: #ffffff;
+    --nav-bg: #e60012;
+    --nav-text: #ffffff;
+    --card-bg: #000000;
+    --card-border: #ffffff;
+    --btn-bg: #ffffff;
+    --btn-text: #e60012;
+    --hover-shadow: 8px 8px 0px #e60012;
+    --admin-color: #000000; 
+    --main-font: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
 }
 
-/* Theme 3: Retro */
 [data-theme="retro"] {
-    --bg-color: #f4ecd8;
-    --text-color: #2c1e16;
-    --nav-bg: #e3d2a3;
-    --card-border: #c8b88a;
-    --btn-bg: #d9534f;
+    --bg-colour: #a8d1ff; 
+    --text-colour: #002244;
+    --nav-bg: #0059b3;
+    --nav-text: #ffffff; 
+    --card-bg: #ffffff;
+    --card-border: #0059b3;
+    --btn-bg: #0088cc;
     --btn-text: #ffffff;
+    --hover-shadow: 0 10px 25px rgba(0, 89, 179, 0.4);
+    --admin-color: #ffea00; 
+    --main-font: 'Quicksand', sans-serif;
 }
 
-/* Base Styles */
+/* 3. BASE STYLES & COMPLEXITY */
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: Arial, sans-serif;
-    transition: all 0.3s ease; /* Smooth transition for theme switching */
+    background-color: var(--bg-colour);
+    color: var(--text-colour);
+    font-family: var(--main-font);
+    transition: background-color 0.4s ease, color 0.4s ease;
     margin: 0;
     padding: 0;
 }
 
-/* Navigation */
+/* 4. RESPONSIVE NAVIGATION */
 header {
     background-color: var(--nav-bg);
-    padding: 20px;
-    text-align: center;
+    color: var(--nav-text); 
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+header h1 {
+    margin: 0 0 15px 0;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Reverted: Puts menu on left, selector on right safely */
+    align-items: center;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
     display: flex;
-    justify-content: center;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 nav a {
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--nav-text); 
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    opacity: 0.7;
+}
+
+.admin-link {
+    color: var(--admin-color) !important;
     font-weight: bold;
 }
 
-/* Product Grid */
+/* Reverted: Removed position: absolute to fix mobile overlapping */
+#theme-selector {
+    padding: 5px;
+    font-family: var(--main-font);
+}
+
+.mobile-menu-btn {
+    display: none;
+    background-color: transparent;
+    border: 2px solid currentColor;
+    color: inherit;
+    padding: 8px 15px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-family: var(--main-font);
+}
+
+/* 5. DYNAMIC GRID & HOVER EFFECTS */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
     padding: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .product-card {
-    border: 1px solid var(--card-border);
+    background-color: var(--card-bg);
+    border: 2px solid var(--card-border);
     border-radius: 8px;
     padding: 20px;
     text-align: center;
-    background-color: var(--bg-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.image-placeholder {
-    height: 150px;
-    background-color: var(--card-border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 15px;
-    border-radius: 4px;
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--hover-shadow);
 }
 
 button {
     background-color: var(--btn-bg);
     color: var(--btn-text);
     border: none;
-    padding: 10px 15px;
+    padding: 12px 20px;
+    font-size: 1.1rem;
     cursor: pointer;
     border-radius: 4px;
+    font-family: var(--main-font);
+    font-weight: bold;
+    transition: filter 0.3s ease;
+}
+
+button:hover {
+    filter: brightness(1.2);
+}
+
+/* 6. RESPONSIVE MOBILE MEDIA QUERIES */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start; /* Aligns hamburger and selector cleanly to the left edge */
+    }
+    
+    .mobile-menu-btn {
+        display: block; 
+        margin-bottom: 15px;
+    }
+
+    nav ul {
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        text-align: left;
+    }
+
+    nav ul.showing {
+        display: flex; 
+    }
+
+    #theme-selector {
+        margin-top: 20px;
+        align-self: flex-start; /* Keeps it neatly below the menu */
+    }
 }
