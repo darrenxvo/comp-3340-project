@@ -2,6 +2,9 @@
 
 Sound Stage is a dynamic, database-driven e-commerce platform designed for audiophiles to browse and purchase high-fidelity physical media (Vinyl records and CDs).
 
+## Live Demo
+**Check out the live website here:** https://vongoct.myweb.cs.uwindsor.ca/comp3340_project/
+
 ## Features
 
 * **Dynamic Catalogue:** Products and prices are rendered dynamically from a MySQL database.
